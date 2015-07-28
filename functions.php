@@ -61,26 +61,26 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 
 // }
 
-// add_action('template_redirect', 'sp_custom_post_content');
-// function sp_custom_post_content(){
-//   // only work for home & blog template page
-//   if( is_home() || is_front_page() || is_page_template('page_blog.php') ){ 
-//     remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
-//     remove_action( 'genesis_post_content', 'genesis_do_post_content' );
-//     add_action( 'genesis_entry_content', 'genesis_do_custom_post_content' );
-//     add_action( 'genesis_post_content', 'genesis_do_custom_post_content' );
-//   }
-// }
+add_action('template_redirect', 'sp_custom_post_content');
+function sp_custom_post_content(){
+  // only work for home & blog template page
+  if( is_home() || is_front_page() || is_page_template('page_blog.php') ){ 
+    remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
+    remove_action( 'genesis_post_content', 'genesis_do_post_content' );
+    add_action( 'genesis_entry_content', 'genesis_do_custom_post_content' );
+    add_action( 'genesis_post_content', 'genesis_do_custom_post_content' );
+  }
+}
 
-// function genesis_do_custom_post_content(){
-//   global $wp_query;
-//   if( $wp_query->current_post == 0 ){ 
-//    // Only first post will display full content
-//     the_content();
-//   }else{
-//     the_excerpt();
-//   }
-// }
+function genesis_do_custom_post_content(){
+  global $wp_query;
+  if( $wp_query->current_post == 0 ){ 
+   // Only first post will display full content
+    the_content();
+  }else{
+    the_excerpt();
+  }
+}
 
 add_theme_support( 'genesis-custom-header', array(
 	'width' => 800, 'height' => 340)
