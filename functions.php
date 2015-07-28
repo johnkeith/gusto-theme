@@ -102,3 +102,9 @@ function custom_google_fonts_styles() {
 add_action( 'wp_enqueue_scripts', 'font_awesome_styles');
 add_action( 'wp_enqueue_scripts', 'custom_styles');
 add_action( 'wp_enqueue_scripts', 'custom_google_fonts_styles');
+
+add_filter( 'genesis_post_meta', 'sp_post_meta_filter' );
+function sp_post_meta_filter($post_meta) {
+	$post_meta = '[post_categories]';
+	return $post_meta;
+}
