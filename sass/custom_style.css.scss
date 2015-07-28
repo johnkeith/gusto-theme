@@ -1,0 +1,26 @@
+// Sass Variables and Mixins
+$main-color: rgba(117, 200, 201, 1);
+$main-lighter: rgba(117, 200, 201, 0.5);
+$light-grey: rgba(189, 195, 199, 1.0);
+$lighter-grey: rgba(189, 195, 199, 0.5);
+$lightest-grey: rgba(189, 195, 199, 0.1);
+$basic-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+$bigger-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+
+@mixin basic-transition($seconds) {
+  transition: box-shadow $seconds cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: $seconds;
+}
+
+// Basics (Typography, headers)
+html {
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Josefin Sans", sans-serif;
+}

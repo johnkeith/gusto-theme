@@ -88,7 +88,7 @@ add_theme_support( 'genesis-custom-header', array(
 
 // adding stylesheets
 function font_awesome_styles() {
-	wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri().'/custom_css/font-awesome.css', array(), "4.2.0");
+	wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri().'/custom_fonts/font-awesome.css', array(), "4.2.0");
 }
 
 function custom_styles() {
