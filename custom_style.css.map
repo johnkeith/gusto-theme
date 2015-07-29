@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAkBA,IAAK,CACH,WAAW,CAAE,kBAAkB,CAC/B,WAAW,CAAE,GAAG,CAGlB,iBAAuB,CACrB,WAAW,CAAE,0BAA0B",
-"sources": ["sass/custom_style.css.scss"],
-"names": [],
-"file": "custom_style.css"
-}

@@ -24,3 +24,30 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Josefin Sans", sans-serif;
 }
+
+.site-header {
+  background-color: white;
+  .wrap {
+    .title-area {
+      float: none;
+      margin: 0 auto;
+      min-height: 170px;
+      width: 400px;
+      .site-title {
+        a {
+          min-height: 170px;
+        }
+      }
+    }
+    .widget-area {
+      float: none;
+      text-align: center;
+      width: 100%;
+      .search-form {
+        width: 30%;
+      }
+    }
+  }
+}
+
+

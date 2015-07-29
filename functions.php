@@ -82,9 +82,14 @@ function genesis_do_custom_post_content(){
   }
 }
 
-add_theme_support( 'genesis-custom-header', array(
-	'width' => 800, 'height' => 340)
-);
+//* Add support for custom header
+add_theme_support( 'custom-header', array(
+  'flex-height'     => true,
+  'width'           => 400,
+  'height'          => 170,
+  'header-selector' => '.site-title a',
+  'header-text'     => false,
+) );
 
 // adding stylesheets
 function font_awesome_styles() {
