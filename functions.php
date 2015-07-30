@@ -74,10 +74,11 @@ function sp_custom_post_content(){
 
 function genesis_do_custom_post_content(){
   global $wp_query;
-  if( $wp_query->current_post == 0 ){ 
+  if($wp_query -> current_post == 0 && !is_paged()){ 
    // Only first post will display full content
     the_content();
   }else{
+    the_post_thumbnail('excerpt-thumbnail');
     the_excerpt();
   }
 }
@@ -113,3 +114,18 @@ function sp_post_meta_filter($post_meta) {
 	$post_meta = '[post_categories]';
 	return $post_meta;
 }
+
+//* add utility bar above header logo and menu
+genesis_register_sidebar( array(
+  'id' => 'utility-bar-right',
+  'name' => __('Utility Bar Right', 'theme-prefix'),
+  'description' => __('This is the right utility bar above header.', 'theme-prefix')
+) );
+
+genesis_register_sidebar( array(
+  'id' => 'utility-bar-left',
+  'name' => __('Utility Bar Left', 'theme-prefix'),
+  'description' => __('This is the right utility bar above header.', 'theme-prefix')
+) );
+
+add_image_size( 'excerpt-thumbnail', 192, 230, true );
