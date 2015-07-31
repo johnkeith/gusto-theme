@@ -144,3 +144,11 @@ function custom_genesis_posts_nav(){
 add_action( 'genesis_before_footer', 'custom_genesis_posts_nav');
 add_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 // end pagination stuffs
+
+// customize entry header, entry meta
+add_filter( 'genesis_post_info', 'sp_post_info_filter' );
+function sp_post_info_filter($post_info) {
+if ( !is_page() ) {
+  $post_info = '[post_date] [post_comments] [post_edit]';
+  return $post_info;
+}}

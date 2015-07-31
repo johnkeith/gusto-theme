@@ -64,12 +64,22 @@ main {
     &.entry:last-child {
       margin-bottom: 40px;
     }
+    .entry-header {
+      .entry-meta {
+        margin-bottom: 20px;
+      }
+    }
     .entry-content {
       display: inline-block;
       padding-bottom: 20px;
       img {
         float: left;
         margin-right: 10px;
+      }
+    }
+    .entry-footer {
+      .entry-meta {
+        padding-top: 4px;
       }
     }
   }
