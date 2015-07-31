@@ -17,12 +17,14 @@ html {
 }
 
 body {
+  background: white;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
 }
 
 .site-header {
@@ -50,16 +52,25 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+.site-inner {
+  padding-top: 0;
+}
 
 main {
   background-color: white;
   article {
+    &:first-child {
+      padding-top: 0;
+      .attachment-excerpt-thumbnail {
+        display: none;
+      }
+    }
     &.entry:first-child {
-      padding-top: 50px;
+      padding-top: 0;
     }
     &.entry {
       margin-bottom: 0px;
-      padding: 15px 30px;
+      padding: 15px 40px;
     }
     &.entry:last-child {
       margin-bottom: 40px;
@@ -71,17 +82,40 @@ main {
     }
     .entry-content {
       display: inline-block;
-      padding-bottom: 20px;
-      img {
+      padding-bottom: 10px;
+      .attachment-excerpt-thumbnail {
         float: left;
-        margin-right: 10px;
+        margin-right: 20px;
+      }
+      .entry-title {
+        font-size: 26px;
+      }
+      .more-link {
+        display: block;
+        padding-top: 20px;
+        text-align: right;
+        text-transform: uppercase;
+      }
+      p {
+        margin:10px 0 0;
       }
     }
     .entry-footer {
       .entry-meta {
-        padding-top: 4px;
+        border-top: 0;
+        border-bottom: 2px solid #f5f5f5;
+        padding-bottom: 15px;
+        padding-top: 0;
       }
     }
+  }
+}
+
+.sidebar {
+  background: #f8f8f8;
+  .widget:first-child {
+    background: #f8f8f8;
+    // padding-top: 0;
   }
 }
 
