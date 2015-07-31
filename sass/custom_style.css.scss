@@ -51,4 +51,28 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+main {
+  background-color: white;
+  article {
+    &.entry:first-child {
+      padding-top: 50px;
+    }
+    &.entry {
+      margin-bottom: 0px;
+      padding: 15px 30px;
+    }
+    &.entry:last-child {
+      margin-bottom: 40px;
+    }
+    .entry-content {
+      display: inline-block;
+      padding-bottom: 20px;
+      img {
+        float: left;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
 

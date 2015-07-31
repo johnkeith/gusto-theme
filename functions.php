@@ -129,3 +129,18 @@ genesis_register_sidebar( array(
 ) );
 
 add_image_size( 'excerpt-thumbnail', 192, 230, true );
+
+
+// move around the pagination so it is outside the main section
+remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
+remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
+
+function custom_genesis_posts_nav(){
+  echo '<div class="wrap">';
+    genesis_posts_nav();
+  echo '</div>';
+}
+
+add_action( 'genesis_before_footer', 'custom_genesis_posts_nav');
+add_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
+// end pagination stuffs
