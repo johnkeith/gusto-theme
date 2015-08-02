@@ -62,12 +62,12 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 add_action('template_redirect', 'sp_custom_post_content');
 function sp_custom_post_content(){
   // only work for home & blog template page
-  if( is_home() || is_front_page() || is_page_template('page_blog.php') ){ 
+  // if( is_home() ){ 
     remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
     remove_action( 'genesis_post_content', 'genesis_do_post_content' );
     add_action( 'genesis_entry_content', 'genesis_do_custom_post_content' );
     add_action( 'genesis_post_content', 'genesis_do_custom_post_content' );
-  }
+  // }
 }
 
 function genesis_do_custom_post_content(){
@@ -179,28 +179,25 @@ function sp_read_more_link() {
 // remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 // remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 
-
 //* Move Post Title and Post Info from inside Entry Header to Entry Content on Posts page
 add_action( 'genesis_before_entry', 'reposition_entry_header' );
 function reposition_entry_header() {
+  global $wp_query;
   if ( is_home() ) {
     remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
     remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
     remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
     remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
     
-    add_action( 'genesis_entry_content', 'jk_add_excerpt_thumb', 9);
+    if(($wp_query -> current_post != 0 && !is_paged()) || is_paged()){
+      add_action( 'genesis_entry_content', 'jk_add_excerpt_thumb', 9);
+    }
+
     add_action( 'genesis_entry_content', 'genesis_do_post_title', 9 );
     add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
   }
 }
 
 function jk_add_excerpt_thumb() {
-  // TODO FIX FOR OTHER PAGES AFTER FISRT
-  // global $wp_query;
-  // if($wp_query -> current_post == 0 && !is_paged(){
-
-  // } else {
-    the_post_thumbnail('excerpt-thumbnail');    
-  // }
+  the_post_thumbnail('excerpt-thumbnail');    
 }
