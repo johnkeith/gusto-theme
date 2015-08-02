@@ -38,6 +38,9 @@ h1, h2, h3, h4, h5, h6 {
       width: 400px;
       .site-title {
         a {
+          background-size: contain !important;
+          background-position: center !important;
+          height: auto;
           min-height: 170px;
         }
       }
@@ -149,6 +152,16 @@ main {
 }
 
 @media only screen and (max-width: 800px) {
+  .site-header {
+    background-color: white;
+    .wrap {
+      padding: 10px 0;
+      .title-area {
+        width: 100%;
+      }
+    }
+  }
+
   main {
     article {
       &.entry {
@@ -169,3 +182,9 @@ main {
   }
 }
 
+
+.header-image .site-title {
+  a {
+
+  }
+} 
