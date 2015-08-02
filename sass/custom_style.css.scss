@@ -7,6 +7,24 @@ $lightest-grey: rgba(189, 195, 199, 0.1);
 $basic-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
 $bigger-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
 
+$teal: rgba(116, 169, 164, 1);
+$lighter-teal: rgba(162, 186, 182, 1);
+$lightest-teal: rgba(215, 235, 233, 1);
+
+$off-black: rgba(0, 0, 47, 1);
+
+$navy: rgba(12, 25, 65, 1);
+$lighter-navy: rgba(15, 35, 67, 1);
+
+$coral: rgba(250, 111, 92, 1);
+
+$taupe: rgba(179, 163, 147, 1);
+
+$darkest-gray: rgba(101, 101, 101, 1);
+$gray: rgba(174, 174, 176, 1);
+$gray-taupe: rgba(169, 169, 169, 1);
+$gray-teal: rgba(205, 215, 214, 1);
+
 @mixin basic-transition($seconds) {
   transition: box-shadow $seconds cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: $seconds;
@@ -92,6 +110,7 @@ main {
       .attachment-excerpt-thumbnail {
         float: left;
         margin-right: 20px;
+        margin-top: 10px;
       }
       .entry-title {
         font-size: 26px;
