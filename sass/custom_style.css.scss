@@ -25,6 +25,9 @@ $gray: rgba(174, 174, 176, 1);
 $gray-taupe: rgba(169, 169, 169, 1);
 $gray-teal: rgba(205, 215, 214, 1);
 
+$default-link-color: $coral;
+$secondary-link-color: $teal;
+
 @mixin basic-transition($seconds) {
   transition: box-shadow $seconds cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: $seconds;
@@ -43,6 +46,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
+}
+
+a {
+  color: $default-link-color; 
+}
+
+input:hover[type="submit"], .button:hover {
+  background-color: $default-link-color;
 }
 
 .site-header {
@@ -73,8 +84,32 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
 .site-inner {
   padding-top: 0;
+}
+
+%genesis-nav-menu-item-styles {
+  .current-menu-item {
+    a {
+      color: $default-link-color;
+    }
+  }
+  .sub-menu {
+    .current-menu-item {
+      a:hover {
+        color: $default-link-color;
+      }
+    }
+  }
+}
+
+.genesis-nav-menu {
+  @extend %genesis-nav-menu-item-styles;
+}
+
+.nav-primary {
+  @extend .genesis-nav-menu;
 }
 
 main {
@@ -114,6 +149,9 @@ main {
       }
       .entry-title {
         font-size: 26px;
+        a:hover {
+          color: $secondary-link-color;
+        }
       }
       .more-link {
         display: block;
@@ -157,6 +195,7 @@ main {
   li {
     &.active {
       a {
+        background: $default-link-color;
         color: white;
       }
     }
@@ -164,6 +203,7 @@ main {
       background-color: white;
       color: #333;
       &:hover {
+        background: $default-link-color;
         color: white;
       }
     }
@@ -202,8 +242,14 @@ main {
 }
 
 
-.header-image .site-title {
-  a {
-
+.footer-widgets {
+  .button, input[type="submit"] {
+    background-color: $secondary-link-color;
   }
-} 
+}
+
+.enews-widget {
+  input[type="submit"] {
+    background-color: $secondary-link-color;
+  }
+}
