@@ -113,6 +113,7 @@ function sp_custom_post_content(){
 function genesis_do_custom_post_content() {
   global $wp_query;
   if(is_category() || is_tax()) {
+    // show no excerpt or content if it is cat or tax
     return;
   } else if($wp_query -> current_post == 0 && !is_paged()){ 
     // Only first post on home blog will display full content
@@ -124,21 +125,25 @@ function genesis_do_custom_post_content() {
 }
 
 //* Move Post Title and Post Info from inside Entry Header to Entry Content on Posts page
-add_action( 'genesis_before_entry', 'reposition_entry_header' );
-function reposition_entry_header() {
+add_action( 'genesis_before_entry', 'reconfigure_post_content' );
+function reconfigure_post_content() {
   global $wp_query;
   if ( is_home() || is_archive()) {
     remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
     remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
     remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
     remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
-    
+    remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+
     if((is_category() || is_tax()) || ($wp_query -> current_post != 0 && !is_paged()) || is_paged()){
       add_action( 'genesis_entry_content', 'jk_add_excerpt_thumb', 9);
     }
 
-    add_action( 'genesis_entry_content', 'genesis_do_post_title', 9 );
-    add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
+    if(!is_category() && !is_tax()){
+      add_action( 'genesis_entry_content', 'genesis_do_post_title', 9 );
+      add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
+      add_action( 'genesis_entry_footer', 'genesis_post_meta' );
+    }
   }
 }
 
