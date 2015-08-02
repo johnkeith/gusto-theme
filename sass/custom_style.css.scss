@@ -64,6 +64,9 @@ main {
       .attachment-excerpt-thumbnail {
         display: none;
       }
+      h1.entry-title {
+        font-size: 36px;
+      }
     }
     &.entry:first-child {
       padding-top: 0;
@@ -117,6 +120,52 @@ main {
     background: #f8f8f8;
     // padding-top: 0;
   }
+  .widget {
+    margin: 0;
+    padding: 20px;
+    .widget-wrap {
+      background-color: white;
+      padding: 20px;
+    }
+  }
 }
 
+.archive-pagination {
+  padding: 0 40px;
+  li {
+    &.active {
+      a {
+        color: white;
+      }
+    }
+    a {
+      background-color: white;
+      color: #333;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    article {
+      &.entry {
+        padding-left: 0;
+        padding-right: 0;
+        .entry-content {
+          display: block;
+          text-align: center;
+          img {
+            float: none;
+          }
+          h1, p {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
 
