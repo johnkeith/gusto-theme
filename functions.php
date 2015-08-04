@@ -179,3 +179,11 @@ function jk_number_of_posts_on_archive($query){
   }
   return $query;
 } 
+
+add_filter( 'genesis_term_meta_headline', 'be_default_category_title', 10, 2 );
+function be_default_category_title( $headline, $term ) {
+  if( ( is_category() || is_tag() || is_tax() ) && empty( $headline ) )
+    $headline = $term->name;
+    
+  return $headline;
+}

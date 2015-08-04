@@ -27,6 +27,8 @@ $gray-teal: rgba(205, 215, 214, 1);
 $default-link-color: $coral;
 $secondary-link-color: $teal;
 
+$sidebar-background: #f8f8f8;
+
 @mixin basic-transition($seconds) {
   transition: box-shadow $seconds cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: $seconds;
@@ -124,7 +126,7 @@ main {
         // display: none;
       }
       h1.entry-title {
-        font-size: 36px;
+        // font-size: 36px;
       }
     }
     &.entry:first-child {
@@ -181,11 +183,18 @@ main {
 }
 
 .sidebar {
-  background: #f8f8f8;
+  background: $sidebar-background;
   .widget {
-    background: #f8f8f8;
+    background: $sidebar-background;
     margin: 0;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    &:first-child {
+      padding-top: 20px;
+    }
+    input[type="search"] {
+      border-color: $navy;
+      font-size: 16px;
+    }
     button, input[type="submit"] {
       background-color: $navy;
       border: 0;
@@ -196,16 +205,30 @@ main {
       }
     }
     &.enews-widget {
-      background-color: #f8f8f8;
+      background-color: $sidebar-background;
       .widget-title {
         color: $navy;
+      }
+      input {
+        border-color: $navy;
       }
     }
     .widget-wrap {
       background-color: white;
       padding: 20px;
+      ul {
+        li {
+          border-bottom: 1px solid #f5f5f5;
+        }
+      }
     }
   }
+}
+
+// sidebar widget extra
+#subscribe-email input {
+  padding: 16px;
+  width: 100%;
 }
 
 .archive-pagination {
@@ -269,6 +292,14 @@ main {
 
 .archive {
   main {
+    .archive-description {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      .archive-title {
+        font-size: 36px;
+      }
+    }
     article {
       &:first-child {
         h1.entry-title {
