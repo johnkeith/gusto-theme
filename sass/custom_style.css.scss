@@ -16,8 +16,7 @@ $off-black: rgba(0, 0, 47, 1);
 $navy: rgba(12, 25, 65, 1);
 $lighter-navy: rgba(15, 35, 67, 1);
 
-$coral: rgba(250, 111, 92, 1);
-
+$coral: rgba(255, 133, 129, 1);
 $taupe: rgba(179, 163, 147, 1);
 
 $darkest-gray: rgba(101, 101, 101, 1);
@@ -44,6 +43,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: $navy;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
 }
@@ -71,6 +71,9 @@ input:hover[type="submit"], .button:hover {
           background-position: center !important;
           height: auto;
           min-height: 170px;
+          &:hover {
+            opacity: 0.8;
+          }
         }
       }
     }
@@ -149,8 +152,11 @@ main {
       }
       .entry-title {
         font-size: 26px;
+        a {
+          color: $navy;
+        }
         a:hover {
-          color: $secondary-link-color;
+          color: $default-link-color;
         }
       }
       .more-link {
@@ -176,13 +182,25 @@ main {
 
 .sidebar {
   background: #f8f8f8;
-  .widget:first-child {
-    background: #f8f8f8;
-    // padding-top: 0;
-  }
   .widget {
+    background: #f8f8f8;
     margin: 0;
     padding: 20px;
+    button, input[type="submit"] {
+      background-color: $navy;
+      border: 0;
+      width: 100%;
+      &:hover {
+        background-color: $secondary-link-color;
+        color: white;
+      }
+    }
+    &.enews-widget {
+      background-color: #f8f8f8;
+      .widget-title {
+        color: $navy;
+      }
+    }
     .widget-wrap {
       background-color: white;
       padding: 20px;
@@ -207,6 +225,12 @@ main {
         color: white;
       }
     }
+  }
+}
+
+.footer-widgets {
+  .button, input[type="submit"] {
+    background-color: $secondary-link-color;
   }
 }
 
@@ -241,15 +265,31 @@ main {
   }
 }
 
+// archives
 
-.footer-widgets {
-  .button, input[type="submit"] {
-    background-color: $secondary-link-color;
-  }
-}
-
-.enews-widget {
-  input[type="submit"] {
-    background-color: $secondary-link-color;
+.archive {
+  main {
+    article {
+      &:first-child {
+        h1.entry-title {
+          font-size: 20px;
+        }
+      }
+      &.entry {
+        padding: 0;
+        text-align: center;
+        h1.entry-title {
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+      .entry-content {
+        padding-bottom: 0;
+        .attachment-excerpt-thumbnail {
+          float: none;
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
