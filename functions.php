@@ -117,7 +117,7 @@ function sp_custom_post_content(){
 
 function genesis_do_custom_post_content() {
   global $wp_query;
-  if(is_category() || is_tag()) {
+  if(is_category() || is_tag() || is_date()) {
     // show no excerpt or content if it is cat or tax
     return;
   } else if($wp_query -> current_post == 0 && !is_paged()){ 
@@ -140,18 +140,18 @@ function reconfigure_post_content() {
     remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
     remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
-    if((is_category() || is_tag()) || ($wp_query -> current_post != 0 && !is_paged()) || is_paged()){
+    if((is_category() || is_tag() || is_date()) || ($wp_query -> current_post != 0 && !is_paged()) || is_paged()){
       add_action( 'genesis_entry_content', 'jk_add_excerpt_thumb', 9);
     }
 
     add_action( 'genesis_entry_content', 'genesis_do_post_title', 9 );
 
-    if(!is_category() && !is_tag()){
+    if(!is_category() && !is_tag() && !is_date()){
       add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
       add_action( 'genesis_entry_footer', 'genesis_post_meta' );
     }
 
-    if(is_category() || is_tag()){
+    if(is_category() || is_tag() || is_date()){
       add_filter( 'genesis_attr_entry', 'jk_add_archive_entry_pure_classes' );
     }
   }
@@ -182,7 +182,7 @@ function jk_number_of_posts_on_archive($query){
 
 add_filter( 'genesis_term_meta_headline', 'be_default_category_title', 10, 2 );
 function be_default_category_title( $headline, $term ) {
-  if( ( is_category() || is_tag() || is_tax() ) && empty( $headline ) )
+  if( ( is_category() || is_tag() || is_tax() || is_date() ) && empty( $headline ) )
     $headline = $term->name;
     
   return $headline;
