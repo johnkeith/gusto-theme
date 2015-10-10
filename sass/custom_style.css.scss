@@ -319,7 +319,7 @@ main {
       text-align: center;
       .archive-title {
         border-bottom: 2px solid $border-color;
-        font-size: 26px;
+        // font-size: 26px;
         padding-bottom: 15px;
       }
     }
@@ -345,5 +345,28 @@ main {
         }
       }
     }
+  }
+}
+
+// search
+.search {
+  main {
+    .archive-description {
+      margin: 0 auto;
+      max-width: 720px;
+      padding: 0;
+      text-align: center;
+      .archive-title {
+        border-bottom: 2px solid $border-color;
+        padding-bottom: 15px;
+      }
+    }
+    // article {
+    //   &:first-child {
+    //     img {
+    //       display: none;
+    //     }
+    //   }
+    // }
   }
 }
