@@ -187,3 +187,8 @@ function be_default_category_title( $headline, $term ) {
     
   return $headline;
 }
+
+add_action( 'genesis_meta', 'theme_viewport_meta_tag' );
+function theme_viewport_meta_tag() {
+  echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
+}

@@ -1,25 +1,33 @@
 // Sass Variables and Mixins
 $main-color: rgba(117, 200, 201, 1);
 $main-lighter: rgba(117, 200, 201, 0.5);
-$light-grey: rgba(189, 195, 199, 1.0);
-$lighter-grey: rgba(189, 195, 199, 0.5);
-$lightest-grey: rgba(189, 195, 199, 0.1);
+
 $basic-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
 $bigger-box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2);
+
 $teal: rgba(116, 169, 164, 1);
 $lighter-teal: rgba(162, 186, 182, 1);
 $lightest-teal: rgba(215, 235, 233, 1);
+
 $off-black: rgba(0, 0, 47, 1);
+
 $navy: rgba(12, 25, 65, 1);
 $lighter-navy: rgba(15, 35, 67, 1);
+
 $coral: rgba(255, 133, 129, 1);
 $taupe: rgba(179, 163, 147, 1);
-$darkest-gray: rgba(101, 101, 101, 1);
+
+$light-grey: rgba(189, 195, 199, 1.0);
+$lighter-grey: rgba(189, 195, 199, 0.5);
+$lightest-grey: rgba(189, 195, 199, 0.1);
 $gray: rgba(174, 174, 176, 1);
 $gray-taupe: rgba(169, 169, 169, 1);
 $gray-teal: rgba(205, 215, 214, 1);
+$darkest-gray: rgba(101, 101, 101, 1);
+
 $default-link-color: $coral;
 $secondary-link-color: $teal;
+
 $sidebar-background: #f8f8f8;
 $border-color: #f4f4f4;
 
@@ -311,7 +319,7 @@ main {
       text-align: center;
       .archive-title {
         border-bottom: 2px solid $border-color;
-        font-size: 36px;
+        font-size: 26px;
         padding-bottom: 15px;
       }
     }
