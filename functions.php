@@ -76,6 +76,24 @@ genesis_register_sidebar( array(
   'description' => __('This is the right utility bar above header.', 'theme-prefix')
 ) );
 
+add_action( 'genesis_before_header', 'utility_bar' );
+function utility_bar() {
+  echo '<div class="utility-bar"><div class="wrap">';
+ 
+  genesis_widget_area( 'utility-bar-left', array(
+    'before' => '<div class="utility-bar-left">',
+    'after' => '</div>',
+  ));
+ 
+  genesis_widget_area( 'utility-bar-right', array(
+    'before' => '<div class="utility-bar-right">',
+    'after' => '</div>',
+  ));
+
+  echo '</div></div>';
+}
+//* END utility bar section
+
 add_image_size( 'excerpt-thumbnail', 192, 230, true );
 
 
