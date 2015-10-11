@@ -206,7 +206,15 @@ function be_default_category_title( $headline, $term ) {
   return $headline;
 }
 
+// correct viewport tag for mobile devices 
 add_action( 'genesis_meta', 'theme_viewport_meta_tag' );
 function theme_viewport_meta_tag() {
   echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
+}
+
+// change footer text
+add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
+function sp_footer_creds_filter( $creds ) {
+  $creds = 'Copyright [footer_copyright] &middot; <a href="http://www.gustorequired.com">Gusto Theme</a> by <a href="http://johnkeith.us">John Keith</a> &middot; Built on the <a href="http://www.studiopress.com/themes/genesis" title="Genesis Framework">Genesis Framework</a>. Powered by Wordpress.';
+  return $creds;
 }
