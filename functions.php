@@ -3,9 +3,9 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Genesis Sample Theme' );
-define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
-define( 'CHILD_THEME_VERSION', '2.1.2' );
+define( 'CHILD_THEME_NAME', 'Gusto' );
+define( 'CHILD_THEME_URL', 'http://www.gustorequired.com/' );
+define( 'CHILD_THEME_VERSION', '1.0.2' );
 
 //* Enqueue Google Fonts
 // add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
@@ -135,10 +135,10 @@ function sp_custom_post_content(){
 
 function genesis_do_custom_post_content() {
   global $wp_query;
-  if(is_category() || is_tag() || is_date()) {
+  if(is_category() || is_tag() || is_date() || is_search()) {
     // show no excerpt or content if it is cat or tax
     return;
-  } else if($wp_query -> current_post == 0 && !is_paged() && !is_search()){ 
+  } else if($wp_query -> current_post == 0 && !is_paged()){ 
     // Only first post on home blog will display full content
     the_content();
   } else {
@@ -164,12 +164,12 @@ function reconfigure_post_content() {
 
     add_action( 'genesis_entry_content', 'genesis_do_post_title', 9 );
 
-    if(!is_category() && !is_tag() && !is_date()){
+    if(!is_category() && !is_tag() && !is_date() && !is_search()){
       add_action( 'genesis_entry_content', 'genesis_post_info', 9 );
       add_action( 'genesis_entry_footer', 'genesis_post_meta' );
     }
 
-    if(is_category() || is_tag() || is_date()){
+    if(is_category() || is_tag() || is_date() || is_search()){
       add_filter( 'genesis_attr_entry', 'jk_add_archive_entry_pure_classes' );
     }
   }
