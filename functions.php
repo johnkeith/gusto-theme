@@ -65,6 +65,12 @@ function sp_post_meta_filter($post_meta) {
 
 //* add utility bar above header logo and menu
 genesis_register_sidebar( array(
+  'id' => 'utility-bar-full',
+  'name' => __('Utility Bar Full', 'theme-prefix'),
+  'description' => __('This is the full utility bar above header.', 'theme-prefix')
+) );
+
+genesis_register_sidebar( array(
   'id' => 'utility-bar-right',
   'name' => __('Utility Bar Right', 'theme-prefix'),
   'description' => __('This is the right utility bar above header.', 'theme-prefix')
@@ -80,6 +86,11 @@ add_action( 'genesis_before_header', 'utility_bar' );
 function utility_bar() {
   echo '<div class="utility-bar"><div class="wrap">';
  
+  genesis_widget_area( 'utility-bar-full', array(
+    'before' => '<div class="utility-bar-full">',
+    'after' => '</div>',
+  ));
+
   genesis_widget_area( 'utility-bar-left', array(
     'before' => '<div class="utility-bar-left">',
     'after' => '</div>',
