@@ -218,3 +218,27 @@ function sp_footer_creds_filter( $creds ) {
   $creds = 'Copyright [footer_copyright] &middot; <a href="http://www.gustorequired.com">Gusto Theme</a> by <a href="http://johnkeith.us">John Keith</a> &middot; Built on the <a href="http://www.studiopress.com/themes/genesis" title="Genesis Framework">Genesis Framework</a>. Powered by Wordpress.';
   return $creds;
 }
+
+// change pagination text
+add_filter( 'genesis_older_link_text', 'gt_review_older_link_text' );
+function gt_review_older_link_text() {
+        $olderlink = '&laquo;';
+        return $olderlink;
+}
+add_filter( 'genesis_newer_link_text', 'gt_review_newer_link_text' );
+function gt_review_newer_link_text() {
+        $newerlink = '&raquo;';
+        return $newerlink;
+}
+
+add_filter( 'genesis_prev_link_text', 'gt_review_prev_link_text' );
+function gt_review_prev_link_text() {
+        $prevlink = '&laquo;';
+        return $prevlink;
+}
+
+add_filter( 'genesis_next_link_text', 'gt_review_next_link_text' );
+function gt_review_next_link_text() {
+        $nextlink = '&raquo;';
+        return $nextlink;
+}
